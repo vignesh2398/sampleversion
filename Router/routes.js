@@ -5,7 +5,7 @@ const { verifys } = require('../Function/verify');
 const { User } = require('../Function/Models/User');
 const { Repo } = require('../Function/Models/Reposchema');
 const { hashcompare } = require('../Function/PasswordHashing');
-
+let Token="fdgdfgdfg"
 router.get("/",async(req,res)=>{
     res.send("hello")
 })
@@ -46,11 +46,11 @@ router.post('/Create',async(req, res)=> {
         try {
           
           
-          const token= jwt.sign({email:UserExist.email},process.env.Token)
+          const tokens= jwt.sign({email:UserExist.email},Token)
 
-          res.header("auth-token", token),{new:true}
+          res.header("auth-token", tokens),{new:true}
           res.header("email",UserExist.email).status(200);
-          res.send({success:true,token:token,email:UserExist.email})
+          res.send({success:true,token:tokens,email:UserExist.email})
           console.log(UserExist.email)
         
           
