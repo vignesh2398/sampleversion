@@ -8,7 +8,7 @@ const { Repo } = require('../Function/Models/Reposchema');
 router.get("/",async(req,res)=>{
     res.send("hello")
 })
-/*
+
 router.post('/Create',async(req, res)=> {
     try {
      const emailExist= await User.findOne({email:req.body.email})
@@ -165,6 +165,6 @@ router.post('/repo',verifys,async(req,res)=>{
       res.send({message:"User Doesnt exist",success:false})
     }
   })
-  */
+
 
 module.exports = router;
