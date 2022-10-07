@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.js"
+    "start": "index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "mongoose": "^6.6.5",
-    "moongoose": "^0.0.5",
     "nodemon": "^2.0.20"
   }
 }
