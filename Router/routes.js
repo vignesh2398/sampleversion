@@ -1,9 +1,10 @@
 const express = require('express');
 const router =express.Router();
-
+const jwt = require("jsonwebtoken")
 const { verifys } = require('../Function/verify');
 const { User } = require('../Function/Models/User');
 const { Repo } = require('../Function/Models/Reposchema');
+const { hashcompare } = require('../Function/PasswordHashing');
 
 router.get("/",async(req,res)=>{
     res.send("hello")
@@ -36,9 +37,9 @@ router.post('/Create',async(req, res)=> {
     const UserExist= await User.findOne({email:req.body.email})
     if(UserExist)
     {
-      const value= await req.body.password
+      const value=  req.body.password
       const hashedpassword=  UserExist.password
-      console.log(await hashcompare(value,hashedpassword))
+      
       const comparepassword=await hashcompare(value,hashedpassword)
       if(comparepassword)
       {
@@ -54,7 +55,7 @@ router.post('/Create',async(req, res)=> {
         
           
         } catch (error) {
-          res.send(error)
+          res.send("error")
         }
 
       }
